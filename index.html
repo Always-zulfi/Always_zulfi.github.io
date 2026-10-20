@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zulfiquar Devtale | AI.DS student projects</title>
+<meta name="description" content="Projects by a first-year AI.DS student: sensors, data and small tools built with Python.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF2F4; --ink:#14213D; --muted:#5B6B80; --line:#C9D3DC;
+  --signal:#1F5FBF; --raw:#9AA9B8; --surface:#E3EAEE;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1A2B; --ink:#E6EDF5; --muted:#9BAABB; --line:#26364D;
+    --signal:#6FA3F0; --raw:#52627A; --surface:#16243A; color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 1.0625rem/1.65 "Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+a{color:var(--signal);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.5rem}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;font-size:.95rem}
+header.top strong{font-weight:600}
+nav a{margin-left:1.25rem;color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink)}
+
+.hero{padding:3.5rem 0 2rem}
+h1{font:400 clamp(2.6rem,8vw,4.75rem)/1.02 "Instrument Serif",Georgia,serif;margin:0 0 1rem;letter-spacing:-.01em}
+.lead{max-width:34rem;font-size:1.2rem;color:var(--muted);margin:0}
+.trace{margin:2.5rem 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 40px, var(--surface)}
+.trace canvas{display:block;width:100%;height:200px}
+.caption{font-size:.9rem;color:var(--muted);margin:.75rem 0 0;max-width:40rem}
+
+section{padding:3.5rem 0 0}
+h2{font:400 2rem/1.15 "Instrument Serif",Georgia,serif;margin:0 0 1.25rem}
+
+.project{display:grid;grid-template-columns:1fr auto;gap:.25rem 1.5rem;padding:1.25rem 0;border-top:1px solid var(--line)}
+.project:last-child{border-bottom:1px solid var(--line)}
+.project h3{margin:0;font-size:1.15rem;font-weight:600}
+.project p{margin:0;grid-column:1;color:var(--muted);max-width:36rem}
+.tags{grid-column:1;font-size:.9rem;color:var(--ink)}
+.status{grid-column:2;grid-row:1;align-self:start;font-size:.85rem;padding:.15rem .6rem;border:1px solid var(--line);border-radius:99px;color:var(--muted);white-space:nowrap}
+.status.done{border-color:var(--signal);color:var(--signal)}
+.project a.repo{grid-column:2;grid-row:2 / span 2;align-self:end;font-size:.95rem}
+@media (max-width:560px){
+  .project{grid-template-columns:1fr}
+  .status,.project a.repo{grid-column:1;grid-row:auto}
+}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1.25rem 2rem;margin:0;padding:0;list-style:none}
+.skills b{display:block;font-weight:600}
+.skills span{color:var(--muted);font-size:.95rem}
+
+.about{max-width:38rem}
+footer{padding:3.5rem 0 3rem;color:var(--muted);font-size:.95rem}
+.links a{margin-right:1.25rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <strong>Zulfiquar Devtale</strong>
+    <nav aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Hi, I'm Zulfiquar Devtale.</h1>
+      <p class="lead">First-year AI.DS student from Indira college of engineering and manegment.</p>
+      <div class="trace"><canvas id="trace" role="img" aria-label="Animated signal: a noisy raw reading in grey and a smoothed version in blue"></canvas></div>
+    </div>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <!-- Copy one .project block per project. Change the status class to "status done" when finished. -->
+      <article class="project">
+        <h3>Expense tracker</h3>
+        <span class="status done">In progress</span>
+        <p>Add expenses from the terminal, save them to CSV and see spending by category and month.</p>
+        <div class="tags">Python, pandas, matplotlib</div>
+        <a class="repo" href="https://github.com/Always-zulfi/expense-tracker">View code</a>
+      </article>
+      <article class="project">
+        <h3>Marks and attendance analyzer</h3>
+        <span class="status">In progress</span>
+        <p>Cleans a class dataset and checks how attendance relates to marks, shown in a small dashboard.</p>
+        <div class="tags">Python, pandas, Streamlit</div>
+        <a class="repo" href="https://github.com/Always-zulfi/marks-analyzer">View code</a>
+      </article>
+      <article class="project">
+        <h3>Weather dashboard</h3>
+        <span class="status">Planned</span>
+        <p>Pulls hourly data from a free weather API, stores it and plots temperature and humidity trends.</p>
+        <div class="tags">Python, REST API, Streamlit</div>
+        <a class="repo" href="https://github.com/Always-zulfi/weather-dashboard">View code</a>
+      </article>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li><b>Python</b><span>Basics, pandas, matplotlib</span></li>
+        <li><b>Java</b><span>Basics, OOP</span></li>
+        <li><b>HTML and CSS</b><span>Basics, this page</span></li>
+        <li><b>C and C++</b><span>Learning, for embedded work</span></li>
+        <li><b>Git and GitHub</b><span>Daily use</span></li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="about">I'm studying Artificial Intelligence and Data Science. I love to solve problems and build things that make a difference.</p>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <h2>Contact</h2>
+    <p class="links">
+      <a href="mailto:zulfiquardevtale@gmail.com">zulfiquardevtale@gmail.com</a>
+      <a href="https://github.com/Always-zulfi">GitHub</a>
+      <a href="https://www.linkedin.com/in/zulfiquar-devtale-44127143a?utm_source=share_via&utm_content=profile&utm_medium=member_android">LinkedIn</a>
+    </p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var c=document.getElementById('trace'),x=c.getContext('2d');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var w,h,buf=[],t=0,frame=0,STEP=3,WIN=9;
+  function sample(){t++;return Math.sin(t*0.045)*0.6+Math.sin(t*0.013+1)*0.25+(Math.random()-0.5)*0.55;}
+  function size(){
+    var d=window.devicePixelRatio||1;
+    w=c.clientWidth;h=c.clientHeight;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0);
+    var n=Math.ceil(w/STEP)+2;
+    while(buf.length<n)buf.push(sample());
+    while(buf.length>n)buf.shift();
+    draw();
+  }
+  function line(vals,color,width){
+    x.beginPath();x.strokeStyle=color;x.lineWidth=width;x.lineJoin='round';
+    vals.forEach(function(v,i){var px=i*STEP,py=h/2+v*h*0.38;i?x.lineTo(px,py):x.moveTo(px,py);});
+    x.stroke();
+  }
+  function draw(){
+    var s=getComputedStyle(document.documentElement);
+    x.clearRect(0,0,w,h);
+    var smooth=buf.map(function(_,i){
+      var a=Math.max(0,i-WIN+1),sum=0;
+      for(var j=a;j<=i;j++)sum+=buf[j];
+      return sum/(i-a+1);
+    });
+    line(buf,s.getPropertyValue('--raw'),1.25);
+    line(smooth,s.getPropertyValue('--signal'),2.5);
+  }
+  function loop(){
+    if(++frame%2===0){buf.shift();buf.push(sample());draw();}
+    requestAnimationFrame(loop);
+  }
+  size();
+  addEventListener('resize',size);
+  if(!reduce)requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
